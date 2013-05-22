@@ -19,15 +19,16 @@ public class ProjetoVenda {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+
         EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("ProjetoVendaPU");
         EntityManager manager = fabrica.createEntityManager();
-        Pessoa p = new Pessoa();
-        p.setNome("Dener");
-        EntityTransaction tran = manager.getTransaction();
-        tran.begin();
-        manager.persist(p);
-        tran.commit();
-        // TODO code application logic here
+
+        /*
+         * Pessoa p = new Pessoa(); p.setNome("Dener"); EntityTransaction tran =
+         * manager.getTransaction(); tran.begin(); manager.persist(p);
+         * tran.commit();
+         */
+        
+        Query cretQuery.
     }
 }
