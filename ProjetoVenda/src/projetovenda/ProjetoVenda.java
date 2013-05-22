@@ -4,10 +4,12 @@
  */
 package projetovenda;
 
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
+import projetovenda.Produto;
 
 /**
  *
@@ -23,12 +25,26 @@ public class ProjetoVenda {
         EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("ProjetoVendaPU");
         EntityManager manager = fabrica.createEntityManager();
 
-        /*
-         * Pessoa p = new Pessoa(); p.setNome("Dener"); EntityTransaction tran =
-         * manager.getTransaction(); tran.begin(); manager.persist(p);
-         * tran.commit();
-         */
         
-        Query cretQuery.
+//          Pessoa p = new Pessoa(); p.setNome("Dener"); EntityTransaction tran =
+//          manager.getTransaction(); tran.begin(); manager.persist(p);
+//          tran.commit();
+         
+
+        Query consulta = manager.createQuery("select p form Produto p"
+                + "where p.preco < :preco"
+                + "order by p.nome");
+
+        consulta.setFirstResult(9);
+        //consulta.setMaxResults(3);
+        //consulta.setParameter("preco", 10);
+        
+        List<Produto> lista = consulta.getResultList();
+        for (Produto p : lista) {
+            System.out.println(p);
+        }
+
+
+
     }
 }
