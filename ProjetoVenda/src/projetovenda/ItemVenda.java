@@ -23,7 +23,7 @@ public class ItemVenda implements Serializable {
     
     @ManyToOne(fetch=FetchType.LAZY)
     private Venda venda;
-    @Column(nullable=false)
+
     
     @ManyToOne(fetch= FetchType.EAGER)
     private Produto produto;

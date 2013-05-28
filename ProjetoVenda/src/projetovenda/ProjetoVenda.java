@@ -22,29 +22,31 @@ public class ProjetoVenda {
      */
     public static void main(String[] args) {
 
-        EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("ProjetoVendaPU");
-        EntityManager manager = fabrica.createEntityManager();
+        PessoaDAO dao = new PessoaDAO();
 
-        
+        Pessoa teste = new Pessoa();
+        teste.setNome("teste");
+        dao.Salvar(teste);
+
+        for (Pessoa p : dao.Buscar(0, 1000)) {
+            System.out.println(p);
+        }
+    }
+//        EntityManagerFactory fabrica = Persistence.createEntityManagerFactory("ProjetoVendaPU");
+//        EntityManager manager = fabrica.createEntityManager();
 //          Pessoa p = new Pessoa(); p.setNome("Dener"); EntityTransaction tran =
 //          manager.getTransaction(); tran.begin(); manager.persist(p);
 //          tran.commit();
-         
-
-        Query consulta = manager.createQuery("select p form Produto p"
-                + "where p.preco < :preco"
-                + "order by p.nome");
-
-        consulta.setFirstResult(9);
-        //consulta.setMaxResults(3);
-        //consulta.setParameter("preco", 10);
-        
-        List<Produto> lista = consulta.getResultList();
-        for (Produto p : lista) {
-            System.out.println(p);
-        }
-
-
-
-    }
+//        Query consulta = manager.createQuery("select p form Produto p"
+//                + "where p.preco < :preco"
+//                + "order by p.nome");
+//
+//        consulta.setFirstResult(9);
+    //consulta.setMaxResults(3);
+    //consulta.setParameter("preco", 10);
+//        List<Produto> lista = consulta.getResultList();
+//        for (Produto p : lista) {
+//            System.out.println(p);
+//        }
+//}
 }
